@@ -4,7 +4,10 @@
   "private": true,
   "migrate:latest": "ts-node -r dotenv/config ./node_modules/knex/bin/cli.js migrate:latest",
   "scripts": {
-    "start": "node",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "client": "npm start --prefix client",
+    "server": "nodemon server",
+    "start": "node server",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "dependencies": {
