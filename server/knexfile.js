@@ -12,7 +12,7 @@ module.exports = {
  
 production: {
   client: 'postgresql',
-  connection: 'postgresql://postgres:postgres@localhost:5432/react-todo-heroku?ssl=true',
+  connection: 'postgresql://postgres:postgres@127.0.0.1:5432/react-todo-heroku?ssl=true',
   migrations: {
     directory: './db/migrations'
   },
