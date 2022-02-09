@@ -9,14 +9,14 @@ module.exports = {
       password: 'rails'
     },
   },
+ 
+production: {
+  client: 'postgresql',
+  connection: 'postgresql://postgres:postgres@localhost:5432/react-todo-heroku?ssl=true',
+  migrations: {
+    directory: './db/migrations'
+  },
+  useNullAsDefault: true
+}
 
-  production: {
-    client: 'postgresql',
-    connection: {
-      // host: 'postgres://localhost/test',
-      database: 'react-todo-heroku',
-      //user:     'postgres',
-      //password: 'rails'
-    },
-  }
 };
