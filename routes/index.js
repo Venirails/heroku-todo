@@ -14,7 +14,7 @@ if (NODE_ENV === 'production') {
   });
 }
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT);
 
 module.exports = router;

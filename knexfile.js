@@ -1,27 +1,22 @@
-module.exports = {
+const options = process.env.NODE_ENV === 'production' ?
 
-  development: {
+
+
+ {
     client: 'postgresql',
     connection: {
-      // host: 'postgres://localhost/test',
+      host: 'localhost',
       database: 'react_todo',
       user:     'postgres',
       password: 'rails'
-    },
-  },
+    }
+  }:
+  
  
-production: {
-    client: process.env.DB_CLIENT,
-    connection: {
-      host: process.env.DB_HOST,
-      database: process.env.DB_NAME,
-      user: process.env.DB_USER,
-    },
-    pool: {
-      min: 2,
-      max: 10,
-    },
-    
-  },
+  {
+    client: 'postgresql',
+    connection: 'postgres://127.0.0.1:5432/react-todo-heroku'
+   
+  }
 
-};
+module.exports = options;
