@@ -2,10 +2,7 @@ const options = process.env.NODE_ENV === 'production' ?
 {
     client: 'pg',
     connection: process.env.DATABASE_URL,
-    useNullAsDefault: true,
-    dialectOptions: {
-    ssl: true
-    }
+    ssl: { rejectUnauthorized: false }
   } :
 
 
