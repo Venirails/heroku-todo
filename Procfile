@@ -1,1 +1,1 @@
-web: npm start --prefix client
+web: sh -c 'npm start && npm start --prefix client'

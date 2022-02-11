@@ -20,7 +20,7 @@ class App extends Component {
 
   componentDidMount() {
     console.log("mounted ===============================================")
-    axios.get('/').then((result) => {
+    axios.get('https://limitless-wildwood-92350.herokuapp.com/api/all').then((result) => {
       console.log("result :::::::::::::::::::::::::::", result);
       this.setState({
         items: result.data
@@ -30,7 +30,7 @@ class App extends Component {
 
 
   addTodo = (item) => {
-    axios.post('/todo',{name:item}).then((result) => {
+    axios.post('https://limitless-wildwood-92350.herokuapp.com/api/todo',{name:item}).then((result) => {
       console.log("result of post ::::::::::::",result);
       this.setState({
         items: [...this.state.items, result.data],
@@ -40,7 +40,7 @@ class App extends Component {
 
   deleteTodo = (id,e) => {
     console.log("id in app js :::::::::::",id);
-    axios.delete(`/todo/${id}`).then((result) => {
+    axios.delete(`https://limitless-wildwood-92350.herokuapp.com/api/todo/${id}`).then((result) => {
       console.log("res od deleting is ::::::::::::",result)
       console.log("data od deleting is ::::::::::::",result.data)
       const items = this.state.items.filter(item => item.id !== id);  

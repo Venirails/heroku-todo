@@ -24,14 +24,14 @@ app.use(express.json());
 // app.use(cors());
 app.use(cors());
 
-app.get('/', (req, res) => {
+app.get('https://limitless-wildwood-92350.herokuapp.com/api/all', (req, res) => {
   console.log("app started!!");
   knex('todo_table').select('id', 'name').then(rows => {
     res.json(rows)
   })
 })
 
-app.post('/todo', (req, res) => {
+app.post('https://limitless-wildwood-92350.herokuapp.com/api/todo', (req, res) => {
   console.log("reqBody ::: ", req.body.name)
   knex('todo_table').insert({ name: req.body.name }).returning(['id', 'name'])
     .then(row => {
@@ -41,7 +41,7 @@ app.post('/todo', (req, res) => {
     })
 })
 
-app.delete('/todo/:id',(req,res) => {
+app.delete('https://limitless-wildwood-92350.herokuapp.com/api/todo/:id',(req,res) => {
   console.log("id ::::::::::::::::::::::::::::",req.params.id);
   knex('todo_table').where('id',req.params.id).del(['id','name']).then(row => {
     console.log("row is ::::::::::::::::::",row[0])
@@ -52,7 +52,7 @@ app.delete('/todo/:id',(req,res) => {
   console.log("delete succcessfull")
 })
 
-app.put('/todo/:id',(req,res) => {
+app.put('https://limitless-wildwood-92350.herokuapp.com/api/todo/:id',(req,res) => {
   console.log("id in put is :::::::::",req.params.id);
   knex('todo_table').where({id:req.params.id}).update({name:req.body.name},['id','name']).then(row => {
      console.log("res of put ::::::::::",row);

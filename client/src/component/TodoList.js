@@ -7,8 +7,6 @@ class TodoList extends Component {
         this.props.deleteTodo(id,e);
     }
     render() {
-        console.log("===============")
-        console.log(typeof(this.props.items[1]))
         return (
             <div class='mt-4'>
                 <ul class='list-group'>
