@@ -7,16 +7,18 @@ class TodoList extends Component {
         this.props.deleteTodo(id,e);
     }
     render() {
-         return (
+        console.log("===============")
+        console.log(typeof(this.props.items[1]))
+        return (
             <div class='mt-4'>
                 <ul class='list-group'>
-                    {this.props.items.length > 0 ? this.props.items.map((item) => {
+                    {this.props.items.map((item) => {
                         return (
                             <li className='list-group-item' key={item.id}>{item.name}
                                 <button class='deleteButton' onClick={(e) => this.deleteRow(item.id, e)}><i className="icon bi bi-trash"></i></button>
                             </li>
                         )
-                    }) : null}
+                    })}
                 </ul>
             </div>
         )
